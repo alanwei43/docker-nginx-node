@@ -1,0 +1,1 @@
+docker build -t nginx-node:0.0.1 ./
