@@ -3,14 +3,14 @@
 # Discussion, issues and change requests at:
 #   https://github.com/nodesource/distributions
 #
-# Script to install the NodeSource Node.js 15.x repo onto a
+# Script to install the NodeSource Node.js 14.x repo onto a
 # Debian or Ubuntu system.
 #
 # Run as root or insert `sudo -E` before `bash`:
 #
-# curl -sL https://deb.nodesource.com/setup_15.x | bash -
+# curl -sL https://deb.nodesource.com/setup_14.x | bash -
 #   or
-# wget -qO- https://deb.nodesource.com/setup_15.x | bash -
+# wget -qO- https://deb.nodesource.com/setup_14.x | bash -
 #
 # CONTRIBUTIONS TO THIS SCRIPT
 #
@@ -21,9 +21,9 @@
 
 
 export DEBIAN_FRONTEND=noninteractive
-SCRSUFFIX="_15.x"
-NODENAME="Node.js 15.x"
-NODEREPO="node_15.x"
+SCRSUFFIX="_14.x"
+NODENAME="Node.js 14.x"
+NODEREPO="node_14.x"
 NODEPKG="nodejs"
 
 print_status() {
@@ -337,11 +337,11 @@ local_yarn_key="$keyring/yarnkey.gpg"
 
 print_status """Run \`${bold}sudo apt-get install -y ${NODEPKG}${normal}\` to install ${NODENAME} and npm
 ## You may also need development tools to build native addons:
-     sudo apt-get install -y gcc g++ make
+     sudo apt-get install gcc g++ make
 ## To install the Yarn package manager, run:
      curl -sL $yarn_key_url | gpg --dearmor | sudo tee $local_yarn_key >/dev/null
      echo \"deb [signed-by=$local_yarn_key] $yarn_site stable main\" | sudo tee /etc/apt/sources.list.d/yarn.list
-     sudo apt-get update && sudo apt-get install -y yarn
+     sudo apt-get update && sudo apt-get install yarn
 """
 
 }
